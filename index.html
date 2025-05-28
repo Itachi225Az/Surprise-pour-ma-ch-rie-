@@ -1,0 +1,129 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surprise pour Christie</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      overflow: hidden;
+    }.neon-background {
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.center-text {
+  padding: 20px;
+}
+
+.center-text h1 {
+  font-size: 3em;
+  text-shadow: 0 0 15px #fff;
+}
+
+.button {
+  margin-top: 30px;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  background-color: #ff4efc;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #ff4efc, 0 0 40px #ff4efc;
+  cursor: pointer;
+}
+
+.poem-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
+  font-size: 2em;
+  line-height: 1.5;
+  transition: background 1s;
+}
+
+.play-button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  font-size: 1em;
+  background-color: #00ffcc;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 15px #00ffcc;
+}
+
+  </style>
+</head>
+<body id="poem-body">
+  <div id="accueil" class="neon-background">
+    <div class="center-text">
+      <h1>Bienvenue Dame Christie 🌟</h1>
+      <p>Ceci est un petit cadeau pour toi, de la part de Armel 💝</p>
+      <button class="button" onclick="lancerPoemes()">Découvrir le reste</button>
+    </div>
+  </div>  <div id="poemes" style="display:none;" class="poem-container">
+    <p id="poem-text">Chargement du poème...</p>
+    <button class="play-button" onclick="jouerMusique()">🎵 PLAY Musique</button>
+  </div><audio id="audio-poeme" src="musique.mp3"></audio>
+
+  <script>
+    const poems = [
+      {
+        text: `Depuis ce matin, j’ai une seule chose en tête : ton corps 😍. J’ai envie de toi, de te sentir nue contre moi 🔥, de caresser chaque centimètre de ta peau. J’ai envie d’embrasser ton cou 💋, de descendre lentement vers tes seins 🍒, de les lécher, les sucer jusqu’à ce que tu perdes le contrôle. 💦`,
+        background: "linear-gradient(135deg, #ff416c, #ff4b2b)"
+      },
+      {
+        text: `Mon pénis est dur 🍆 rien qu’à penser à ton vagin chaud, humide, prêt à m’accueillir 🍑. J’ai envie de t’allonger, d’écarter lentement tes jambes 🛏️, de regarder ton clito se gonfler sous mes caresses 😈. Je veux jouer avec ma langue 👅, le lécher, l’aspirer, sentir ton corps trembler de plaisir 😵‍💫.`,
+        background: "linear-gradient(135deg, #6a11cb, #2575fc)"
+      },
+      {
+        text: `Puis, quand t’es prête, je veux te pénétrer lentement, profondément 💘… sentir ton vagin se resserrer autour de mon pénis 🔥, te regarder dans les yeux pendant que je te prends avec envie 😍. Te tirer les cheveux, agripper tes fesses 🍑, te faire gémir à chaque va-et-vient 🔁. T’entendre me supplier d’aller plus vite, plus fort 💥, jusqu’à ce que tu jouisses comme jamais 💦. Et quand t’es à bout, je recommence… Parce que ton corps, ton odeur, ton goût… c’est devenu ma drogue ❤️‍🔥.`,
+        background: "linear-gradient(135deg, #ff6a00, #ee0979)"
+      }
+    ];
+
+    let index = 0;
+
+    function lancerPoemes() {
+      document.getElementById('accueil').style.display = 'none';
+      document.getElementById('poemes').style.display = 'flex';
+      showPoem();
+      setInterval(showPoem, 10000);
+    }
+
+    function showPoem() {
+      const poem = poems[index];
+      document.getElementById('poem-text').innerText = poem.text;
+      document.getElementById('poem-body').style.background = poem.background;
+      index = (index + 1) % poems.length;
+    }
+
+    function jouerMusique() {
+      const audio = document.getElementById('audio-poeme');
+      audio.play();
+    }
+  </script></body>
+</html>
